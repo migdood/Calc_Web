@@ -24,7 +24,7 @@ main .container{
   height: 150px;
   width: 100%;
   resize: none;
-  font-size: 70px;
+  font-size: 30px;
   border-radius: 10px;
   text-align: end;
   outline: none;
@@ -34,7 +34,7 @@ main .container{
   margin: 10px 0px 10px 0px;
 }
 #equals{
-  width: 204px;
+  width: 100px;
 }
 .digits{
   display: flex;
