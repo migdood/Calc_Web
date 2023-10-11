@@ -1,56 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
-  <title>Calculator</title>
-</head>
-<body>
-  <header>
-
-  </header>
-  <main>
-    <div class="container">
-      <div class="display-container">
-        <textarea name="display" id="display" cols="30" rows="1" readonly></textarea>
-      </div>
-      <div class="buttons-container">
-        <div class="digits">
-          <button id="1" class="button">1</button>
-          <button id="2" class="button">2</button>
-          <button id="3" class="button">3</button>
-          <button id="4" class="button">4</button>
-          <button id="5" class="button">5</button>
-          <button id="6" class="button">6</button>
-          <button id="7" class="button">7</button>
-          <button id="8" class="button">8</button>
-          <button id="9" class="button">9</button>
-          <button id="0" class="button">0</button>
-          <button id="clear" class="button">CE</button>
-          <button id="equals" class="button">=</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="container">
+        <div class="display-container">
+          <textarea
+            name="display"
+            id="display"
+            cols="30"
+            rows="1"
+            readonly
+          ></textarea>
         </div>
-        <div class="operators-container">
-          <button id="add" class="button">+</button>
-          <button id="subtract" class="button">-</button>
-          <button id="multiply" class="button">x</button>
-          <button id="divide" class="button">/</button>
+        <div class="buttons-container">
+          <div class="digits1-0">
+            <button id="1" class="button">1</button>
+            <button id="4" class="button">4</button>
+            <button id="7" class="button">7</button>
+            <button id="0" class="button">0</button>
+          </div>
+          <div class="digits2-ce">
+            <button id="2" class="button">2</button>
+            <button id="5" class="button">5</button>
+            <button id="8" class="button">8</button>
+            <button id="clear" class="button">CE</button>
+          </div>
+          <div class="digits3-eq">
+            <button id="3" class="button">3</button>
+            <button id="6" class="button">6</button>
+            <button id="9" class="button">9</button>
+            <button id="equals" class="button">=</button>
+          </div>
+          <div class="operators-container">
+            <button id="add" class="button">+</button>
+            <button id="subtract" class="button">-</button>
+            <button id="multiply" class="button">x</button>
+            <button id="divide" class="button">/</button>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-  <footer>
-    Copyright ©
-    <script>
-      document.write(new Date().getFullYear());
-    </script>
-    migdood
-    <a href="https://github.com/migdood" target="_blank">
-      <i class=""><img src="img/github-icond.png" alt="Github Icon"></i
-    ></a>
-  </footer>
-</body>
+    </main>
+    <footer>
+      Copyright ©
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      migdood
+      <a href="https://github.com/migdood" target="_blank">
+        <i class=""><img src="img/github-icond.png" alt="Github Icon" /></i
+      ></a>
+    </footer>
+  </body>
 </html>

@@ -1,25 +1,25 @@
-body{
+body {
   background-color: #efefee;
 }
-header{
+header {
   height: 100px;
 }
-main{
+main {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
   margin: 0 auto;
 }
-main .container{
-  border: 1px solid black;
+main .container {
+  border: 5px solid black;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   width: 500px;
   height: 600px;
 }
-.container .display-container #display{
+.container .display-container #display {
   box-sizing: border-box;
   height: 150px;
   width: 100%;
@@ -28,42 +28,48 @@ main .container{
   border-radius: 10px;
   text-align: end;
   outline: none;
+  cursor: context-menu;
 }
-.container .buttons-container{
+/* BUTTONS */
+.buttons-container {
   display: flex;
-  margin: 10px 0px 10px 0px;
-}
-#equals{
-  width: 100px;
-}
-.digits{
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 10px;
+  height: 100%;
 }
-.operators-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.buttons-container .button{
+.button {
   font-size: 60px;
   width: 100px;
   height: 100px;
-  border: none;
-  margin: 3px;
-  background-color: rgb(192, 189, 189);
 }
-
-.button:hover{
-  background-color: #efefee;
+.button:hover {
   border: 1px solid black;
   border-radius: 5px;
+  background-color: white;
+}
+.digits1-0 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.digits2-ce {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.digits3-eq {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.operators-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 /* FOOTER */
-footer{
+footer {
   font-size: 36px;
   display: flex;
   justify-content: center;
@@ -75,18 +81,18 @@ footer{
   background-color: transparent;
   padding: 20px 0;
 }
-footer img{
+footer img {
   width: 90px;
   height: auto;
 }
-footer img:hover{
+footer img:hover {
   animation: 1s spin ease;
 }
 @keyframes spin {
-  0%{
+  0% {
     rotate: 0deg;
   }
-  100%{
+  100% {
     rotate: 360deg;
   }
 }
