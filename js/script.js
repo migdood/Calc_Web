@@ -8,7 +8,6 @@ const btn6 = document.getElementById("6");
 const btn7 = document.getElementById("7");
 const btn8 = document.getElementById("8");
 const btn9 = document.getElementById("9");
-
 const operatorAdd = document.getElementById("add");
 const operatorSubtract = document.getElementById("subtract");
 const operatorMultiply = document.getElementById("multiply");
@@ -25,19 +24,33 @@ let num1 = "",
 function assignNumber(num) {
   if (op == "") {
     num1 += num;
-    display.value += "num1: " + num1;
+    display.value = num1 + op + num2;
   } else {
     num2 += num;
-    display.value += "num2: " + num2;
+    display.value = num1 + op + num2;
+  }
+}
+
+function assignOperator(operator) {
+  if (num1 !== "" && num2 !== "") {
+    calculate(num1, num2, op);
+    num2 = "";
+    op = operator;
+    display.value += op;
+  } else {
+    op = operator;
+    display.value += op;
   }
 }
 
 function calculate(number1, number2, operator) {
   let result;
+  if (num1 == 0 || (num2 == 0 && op == "/")) {
+    alert("Can't divide by zero you silly goose.");
+  }
   // parse so when added, it's not concatenated
   number1 = parseFloat(number1);
   number2 = parseFloat(number2);
-
   switch (operator) {
     case "+":
       result = number1 + number2;
@@ -55,22 +68,20 @@ function calculate(number1, number2, operator) {
       display.value = "WTH";
       break;
   }
+  result = parseFloat(result.toFixed(2));
   display.value = result;
   num1 = result;
 }
 
 btn0.addEventListener("click", () => assignNumber(0));
+
 btn0.addEventListener("keydown", function (event) {
   if (event.key == "0") {
     btn0.click();
   }
 });
+
 btn1.addEventListener("click", () => assignNumber(1));
-btn1.addEventListener("keydown", function (event) {
-  if (event.key == "1") {
-    btn1.click();
-  }
-});
 btn2.addEventListener("click", () => assignNumber(2));
 btn3.addEventListener("click", () => assignNumber(3));
 btn4.addEventListener("click", () => assignNumber(4));
@@ -80,26 +91,22 @@ btn7.addEventListener("click", () => assignNumber(7));
 btn8.addEventListener("click", () => assignNumber(8));
 btn9.addEventListener("click", () => assignNumber(9));
 
-operatorAdd.addEventListener(
-  "click",
-  () => ((op = "+"), (display.value += op))
-);
-operatorSubtract.addEventListener(
-  "click",
-  () => ((op = "-"), (display.value += op))
-);
-operatorMultiply.addEventListener(
-  "click",
-  () => ((op = "*"), (display.value += op))
-);
-operatorDivide.addEventListener(
-  "click",
-  () => ((op = "/"), (display.value += op))
-);
+operatorAdd.addEventListener("click", () => assignOperator("+"));
+
+operatorSubtract.addEventListener("click", () => assignOperator("-"));
+
+operatorMultiply.addEventListener("click", () => assignOperator("*"));
+
+operatorDivide.addEventListener("click", () => assignOperator("/"));
 
 operatorEquals.addEventListener("click", () => {
-  calculate(num1, num2, op);
-  num2 = "";
+  if (num1 == "" || num2 == "") {
+    alert("Please Enter All the Numbers Required for the Calculation.");
+  } else {
+    calculate(num1, num2, op);
+    num2 = "";
+    op = "";
+  }
 });
 
 clearButton.addEventListener("click", () => {
@@ -108,4 +115,8 @@ clearButton.addEventListener("click", () => {
   num2 = "";
   num = "";
   op = "";
+});
+
+document.addEventListener("load", () => {
+  display.value = "";
 });
