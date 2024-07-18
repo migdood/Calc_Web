@@ -37,20 +37,18 @@ function assignOperator(operator) {
     num2 = "";
     op = operator;
     display.value += op;
-  } else {
+  } else if (op == "") {
     op = operator;
     display.value += op;
+  } else {
   }
 }
 
 function calculate(number1, number2, operator) {
   let result;
-  if (num1 == 0 || (num2 == 0 && op == "/")) {
-    alert("Can't divide by zero you silly goose.");
-  }
   // parse so when added, it's not concatenated
-  number1 = parseFloat(number1);
-  number2 = parseFloat(number2);
+  number1 = parseFloat(num1);
+  number2 = parseFloat(num2);
   switch (operator) {
     case "+":
       result = number1 + number2;
@@ -59,28 +57,32 @@ function calculate(number1, number2, operator) {
       result = number1 - number2;
       break;
     case "/":
-      result = number1 / number2;
+      if (number1 == 0 || number2 == 0) {
+        alert("Can't divide by zero you silly goose.");
+        (num1 = ""), (num2 = ""), (op = "");
+        result = "DIV Z";
+      } else {
+        result = number1 / number2;
+      }
       break;
     case "*":
       result = number1 * number2;
       break;
     default:
-      display.value = "WTH";
+      display.value = "What in tarnation";
       break;
   }
-  result = parseFloat(result.toFixed(2));
-  display.value = result;
-  num1 = result;
+  if (result == "DIV Z") {
+    result = "Error";
+    display.value = "";
+  } else {
+    result = parseFloat(result.toFixed(2));
+    display.value = result;
+    num1 = result;
+  }
 }
 
 btn0.addEventListener("click", () => assignNumber(0));
-
-btn0.addEventListener("keydown", function (event) {
-  if (event.key == "0") {
-    btn0.click();
-  }
-});
-
 btn1.addEventListener("click", () => assignNumber(1));
 btn2.addEventListener("click", () => assignNumber(2));
 btn3.addEventListener("click", () => assignNumber(3));
@@ -92,11 +94,8 @@ btn8.addEventListener("click", () => assignNumber(8));
 btn9.addEventListener("click", () => assignNumber(9));
 
 operatorAdd.addEventListener("click", () => assignOperator("+"));
-
 operatorSubtract.addEventListener("click", () => assignOperator("-"));
-
 operatorMultiply.addEventListener("click", () => assignOperator("*"));
-
 operatorDivide.addEventListener("click", () => assignOperator("/"));
 
 operatorEquals.addEventListener("click", () => {
