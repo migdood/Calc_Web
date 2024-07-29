@@ -119,3 +119,12 @@ clearButton.addEventListener("click", () => {
 document.addEventListener("load", () => {
   display.value = "";
 });
+
+// Footer stuff
+const footerPicture = document.getElementById("footerPicture");
+footerPicture.addEventListener("mouseenter", () => {
+  footerPicture.animate(
+    { transform: ["rotate(0deg)", "rotate(360deg)"] },
+    550
+  );
+});

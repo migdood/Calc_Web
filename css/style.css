@@ -85,8 +85,8 @@ footer img {
   width: 90px;
   height: auto;
 }
-footer img:hover {
-  animation: 1s spin ease;
+/* footer img:hover {
+  animation: 5s spin;
 }
 @keyframes spin {
   0% {
@@ -95,4 +95,4 @@ footer img:hover {
   100% {
     rotate: 360deg;
   }
-}
+} */
